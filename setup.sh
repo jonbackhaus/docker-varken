@@ -1,6 +1,5 @@
 #!/bin/bash
-DOCKER_VOLUME_VARKEN=docker-varken_config-varken
-DOCKER_VOLUME_GRAFANA=docker-varken_config-grafana
+DOCKER_VOLUME_GRAFANA=varken_config_grafana
 
 # Spin up services first time
 docker-compose up -d influxdb

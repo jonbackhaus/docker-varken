@@ -41,6 +41,6 @@ services:
 
 
 volumes:
-  config-influxdb:
-  config-varken:
-  config-grafana:
+  config_influxdb:
+  config_varken:
+  config_grafana:
