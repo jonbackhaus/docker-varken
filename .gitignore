@@ -13,3 +13,7 @@ varken-venv/
 venv/
 logs/
 __pycache__
+
+# Do not track local secrets
+*.env
+*.ini
