@@ -5,7 +5,7 @@ services:
     container_name: influxdb
     image: influxdb
     volumes:
-      - config-influxdb:/var/lib/influxdb
+      - config_influxdb:/var/lib/influxdb
     restart: unless-stopped
 
   varken:
@@ -13,7 +13,7 @@ services:
     container_name: varken
     image: boerderij/varken
     volumes:
-      - config-varken:/config
+      - config_varken:/config
     env_file: .env
     environment:
       - TZ=America/New_York
@@ -28,7 +28,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - config-grafana:/config
+      - config_grafana:/config
     environment:
       - GF_PATHS_DATA=/config/data
       - GF_PATHS_LOGS=/config/logs
