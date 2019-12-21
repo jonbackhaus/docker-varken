@@ -1,0 +1,8 @@
+.*
+.*/
+docker-compose.yml
+Dockerfile*
+*.md
+!requirements.txt
+!Varken.*
+!varken.*
