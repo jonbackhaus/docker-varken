@@ -2,7 +2,8 @@ version: 2.1
 executors:
   docker-publisher:
     environment:
-      IMAGE_NAME: jonbackhaus/ntopng
+      IMAGE_NAME: jonbackhaus/varken
+      DOCKERFILE: Dockerfile
     docker:
       - image: circleci/buildpack-deps:stretch
 
@@ -12,13 +13,11 @@ jobs:
     executor: docker-publisher
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 18.09.3
+      - setup_remote_docker
       - run:
           name: Build Docker image
           command: |
-            docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-            docker build -t $IMAGE_NAME -f ntopng/Dockerfile.arm ntopng
+            docker build -t $IMAGE_NAME -f $DOCKERFILE .
       - run:
           name: Archive Docker image
           command: docker save -o image.tar $IMAGE_NAME
